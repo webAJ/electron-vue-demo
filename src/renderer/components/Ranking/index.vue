@@ -4,13 +4,13 @@
       <ul class="Ranking-list">
         <h3>男生</h3>
         <li v-for="(item,index) in tabs" :key="index" v-show="item.collapse ==collapse" :class="{red:num==index}"
-         @click="tap(index,item.title,item._id)">
+         @click="tap(index,item.title,item._id,item.monthRank,item.totalRank)">
           <p>{{item.title}}</p>
         </li>
       </ul>
       <ul class="Ranking-list">
         <h3>女生</h3>
-        <li v-for="(itsm,index) in female" :key="index" @click="tap1(index)" :class="{red:nums==index}" v-show="itsm.collapse ==collapse">
+        <li v-for="(itsm,index) in female" :key="index" @click="tap1(index,itsm.title,itsm._id,itsm.monthRank,itsm.totalRank)" :class="{red:nums==index}" v-show="itsm.collapse ==collapse">
           <p>{{itsm.title}}</p>
         </li>
       </ul>
@@ -40,11 +40,12 @@ export default {
     this.$store.dispatch('ClassList');
   },
   methods: {
-    tap(index,title,id) {
-      store.commit('TiId',{title,id})
+    tap(index,title,id,monthRank,totalRank) {
+      store.commit('TiId',{title,id,monthRank,totalRank})
       this.num = index;
     },
-    tap1(index) {
+    tap1(index,title,id,monthRank,totalRank) {
+      store.commit('TiId',{title,id,monthRank,totalRank})
       this.nums = index;
     }
   }
