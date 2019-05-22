@@ -78,32 +78,27 @@ export default {
     Id(){
       axios(`http://api.zhuishushenqi.com/ranking/${this.$store.state.Counter.TiId.id}`)
       .then(data =>{
-        console.log(data.data.ranking.books)
         this.book1 = data.data.ranking.books
       })
       if(!this.$store.state.Counter.TiId.monthRank){
         axios(`http://api.zhuishushenqi.com/ranking/${this.$store.state.Counter.TiId.id}`)
         .then(data =>{
-          console.log(data.data.ranking.books)
           this.book1 = data.data.ranking.books
         })
       }else{
         axios(`http://api.zhuishushenqi.com/ranking/${this.$store.state.Counter.TiId.monthRank}`)
         .then(data =>{
-          console.log(data.data.ranking.books)
           this.book2 = data.data.ranking.books
         })
       }
       if(!this.$store.state.Counter.TiId.monthRank){
         axios(`http://api.zhuishushenqi.com/ranking/${this.$store.state.Counter.TiId.id}`)
         .then(data =>{
-          console.log(data.data.ranking.books)
           this.book1 = data.data.ranking.books
         })
       }else{
         axios(`http://api.zhuishushenqi.com/ranking/${this.$store.state.Counter.TiId.totalRank}`)
         .then(data =>{
-          console.log(data.data.ranking.books)
           this.book3 = data.data.ranking.books
         })
       } 
@@ -115,6 +110,7 @@ export default {
   methods: {
     tap(index){
       this.msg = index;
+      // 这个问题只要把msg重新赋值为零就行！！5/22
     }
   }       
 }

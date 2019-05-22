@@ -6,7 +6,7 @@
         <img class="image" :src="image" />
         <div class="right">
           <h3>{{title}}</h3>
-          <p>{{name}}&nbsp;&nbsp;|&nbsp;&nbsp;{{cat}}&nbsp;&nbsp;|&nbsp;&nbsp;{{wordCount}}字</p>
+          <p>{{name}}&nbsp;&nbsp;|&nbsp;&nbsp;{{cat}}&nbsp;&nbsp;|&nbsp;&nbsp;{{parseFloat(wordCount/10000).toFixed(0)}}万字</p>
           <p>{{updated}}前更新</p>
           <div class="nav">
             <router-link tag="span" :to="{name:'Article',query:{id:pid}}">开始阅读</router-link>

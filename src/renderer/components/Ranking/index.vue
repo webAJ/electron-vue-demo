@@ -14,6 +14,12 @@
           <p>{{itsm.title}}</p>
         </li>
       </ul>
+      <!-- <ul class="Ranking-list">
+        <h3>女生别人家的榜</h3>
+        <li v-for="(itsm,index) in female" :key="index" @click="tap1(index,itsm.title,itsm._id,itsm.monthRank,itsm.totalRank)" :class="{red:nums==index}" v-show="itsm.collapse ==collapse">
+          <p>{{itsm.title}}</p>
+        </li>
+      </ul> -->
     </div>
     <v-book></v-book>
   </div>

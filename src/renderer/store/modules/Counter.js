@@ -2,7 +2,9 @@ import axios from 'axios'
 const state = {
   tabs:[],
   female:[],
-  TiId:''
+  TiId:'',
+  Things:'',
+  name:''
 }
 
 const getters = {
@@ -19,6 +21,12 @@ const mutations = {
   },
   TiId(state,data){
     state.TiId = data
+  },
+  Things(state,data){
+    state.Things = data
+  },
+  name(state,data){
+    state.name = data
   }
 }
 
@@ -27,7 +35,7 @@ const actions = {
   ClassList({commit}){
     axios(`http://api.zhuishushenqi.com/ranking/gender`)
     .then(data =>{
-      console.log(data.data.male)
+      console.log(data.data)
       commit('tabs',data.data.male)
       commit('female',data.data.female)
     })
