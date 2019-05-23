@@ -52,10 +52,13 @@ export default {
     }
   },
   mounted () {
+    var deta = new Date()
+    console.log(deta)
     let id = this.$router.history.current.query.id;
     Axios(`http://api.zhuishushenqi.com/book/${id}`)
     .then(data =>{
       this.image ='http://statics.zhuishushenqi.com'+data.data.cover;
+    console.log(data.data)
       this.title =data.data.title;
       this.name =data.data.author;
       this.wordCount =data.data.wordCount;

@@ -1,6 +1,6 @@
 <template>
   <div class="contnent">
-    <div class="nav">
+    <!-- <div class="nav">
       <ul class="male">
         <h3>男生</h3>
         <li v-for="(item,index) in male " :key="index">
@@ -29,7 +29,7 @@
           <p>{{item.bookCount}}</p>
         </li>
       </ul>
-    </div>
+    </div> -->
     <ul class="box">
       <router-link :to="{name:'detail', query:{id:item._id}}" tag="li" v-for="(item,index) in list" :key="index">
         <img class="image" :src="'http://statics.zhuishushenqi.com'+item.cover" />
