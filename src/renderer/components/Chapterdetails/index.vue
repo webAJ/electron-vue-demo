@@ -6,6 +6,10 @@
       <div class="contnet">
         {{body}}
       </div>
+        <!-- <div>
+          <button>上一页</button>
+          <button @click="next">下一页</button>
+        </div> -->
       <ul v-show="show" class="chapter">
         <li v-for="(item,index) in chapters" :class="{ red:changeRed == index}" :key="index" @click="too(item.link,item.title)" >
           {{item.title}}
@@ -47,12 +51,15 @@ export default {
     },
     too(link,title){
       this.show = !this.show
-      var link = encodeURIComponent(link)
+      var link = encodeURIComponent(link) //encodeURIComponent编码
       this.title = title;
       axios(`http://chapter2.zhuishushenqi.com/chapter/${link}`)
       .then(data =>{
         this.body = data.data.chapter.body;
       })
+    },
+    next(){
+
     }
   },
   components: {

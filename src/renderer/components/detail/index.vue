@@ -7,7 +7,7 @@
         <div class="right">
           <h3>{{title}}</h3>
           <p>{{name}}&nbsp;&nbsp;|&nbsp;&nbsp;{{cat}}&nbsp;&nbsp;|&nbsp;&nbsp;{{parseFloat(wordCount/10000).toFixed(0)}}万字</p>
-          <p>{{updated}}前更新</p>
+          <p>{{updated}}小时前更新</p>
           <div class="nav">
             <router-link tag="span" :to="{name:'Article',query:{id:pid}}">开始阅读</router-link>
             <router-link tag="span" :to="{name:'chapter',query:{id:pid}}">章节目录</router-link>
@@ -24,7 +24,7 @@
         <li v-for="(item,index) in reviews" :key="index">
           <img class="imga" :src="'http://statics.zhuishushenqi.com'+item.author.avatar" />
           <div class="com-right">
-            <p>{{item.author.nickname}}&nbsp;&nbsp;&nbsp;&nbsp;{{item.created}} </p>
+            <p>{{item.author.nickname}}&nbsp;&nbsp;&nbsp;&nbsp;{{new Date(Date.parse(item.created)).toLocaleDateString()}} </p>
             <p>{{item.content}}</p>
           </div>
         </li>
@@ -52,8 +52,6 @@ export default {
     }
   },
   mounted () {
-    var deta = new Date()
-    console.log(deta)
     let id = this.$router.history.current.query.id;
     Axios(`http://api.zhuishushenqi.com/book/${id}`)
     .then(data =>{
@@ -63,10 +61,15 @@ export default {
       this.name =data.data.author;
       this.wordCount =data.data.wordCount;
       this.cat =data.data.minorCateV2;
-      this.updated =data.data.updated;
       this.lastChapter =data.data.lastChapter;
       this.longIntro =data.data.longIntro;
       this.pid =data.data._id;
+      var date1= data.data.updated;  //开始时间
+      var date2 = new Date();    //结束时间
+      var date3 = date2.getTime() - new Date(date1).getTime()
+       //计算出小时数
+      var leave1=date3%(24*3600*1000)    //计算天数后剩余的毫秒数
+      this.updated=Math.floor(leave1/(3600*1000))
     }),
     Axios(`http://api.zhuishushenqi.com/post/review/by-book?book=${id}&sort=updated&start=0&limit=20`)
     .then(data =>{
@@ -149,6 +152,7 @@ export default {
         width: 100%;
         height: 100%;
         margin: 0 10px;
+        p:nth-child(1){color: #3c98c9;}
         p:nth-child(2){
           overflow: hidden;
           text-overflow: ellipsis;

@@ -2,8 +2,10 @@
 <template>
     <div id="goTop">
         <div class="goTop" v-show="goTopShow" @click="goTop">
-            <i class="el-icon-caret-top goTopIcon"></i>
+           
+            <img class="IMG" src="../../assets/coo.gif" />
         </div>
+       
     </div>
 </template>
 <script>
@@ -65,20 +67,18 @@ export default {
     position: fixed;
     right: 40px;
     bottom: 60px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: rgba(51, 153, 255, 1);
+    width: 100px;
+    height: 100px;
+    /* border-radius: 50%; */
+    /* background: rgba(51, 153, 255, 1); */
     padding: 10px;
     cursor: pointer;
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.12);
+    /* box-shadow: 0 0 6px rgba(0, 0, 0, 0.12); */
 }
-.goTop:hover .goTopIcon {
-    color: rgba(51, 153, 255, 1);
-}
-.goTopIcon {
-    font-size: 20px;
-    color: rgba(51, 153, 255, 0.8);
+.IMG{
+  width: 100%;
+  height: 100%;
+  /* border-radius: 50%; */
 }
 </style>
  
