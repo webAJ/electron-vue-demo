@@ -9,7 +9,7 @@
           <p>{{name}}&nbsp;&nbsp;|&nbsp;&nbsp;{{cat}}&nbsp;&nbsp;|&nbsp;&nbsp;{{parseFloat(wordCount/10000).toFixed(0)}}万字</p>
           <p>{{updated}}小时前更新</p>
           <div class="nav">
-            <router-link tag="span" :to="{name:'Article',query:{id:pid}}">开始阅读</router-link>
+            <router-link tag="span" :to="{name:'Article',query:{id:pid,index:Index}}">开始阅读</router-link>
             <router-link tag="span" :to="{name:'chapter',query:{id:pid}}">章节目录</router-link>
           </div>
         </div>
@@ -48,15 +48,17 @@ export default {
       lastChapter:'',
       longIntro:'',
       reviews:[],
-      pid:''
+      pid:'',
+      Index:'',
     }
   },
   mounted () {
     let id = this.$router.history.current.query.id;
+    let  Index = localStorage.getItem('index');
+    this.Index = Index;
     Axios(`http://api.zhuishushenqi.com/book/${id}`)
     .then(data =>{
       this.image ='http://statics.zhuishushenqi.com'+data.data.cover;
-    console.log(data.data)
       this.title =data.data.title;
       this.name =data.data.author;
       this.wordCount =data.data.wordCount;

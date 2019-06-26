@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-   <p><span @click="tap()">后退</span> <span @click="tap1()">首页</span></p>
+   <p><span @click="tap()"><i class="el-icon-back"></i></span> <span @click="tap1()"><i class="el-icon-s-home"></i></span></p>
   </header>
 </template>
 
@@ -18,11 +18,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    
   p{
-    margin: 6px 10px; 
-
+    display: flex;
+    justify-content: space-between;
     span{
       cursor: pointer;
+      font-size: 26px;
+      margin: 4px;
     }
   }
 </style>

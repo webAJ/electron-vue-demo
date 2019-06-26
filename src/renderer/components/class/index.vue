@@ -127,7 +127,7 @@
           v-for="(item,index) in book2"
           :key="index"
         >
-          <img class="image" :src="'http://statics.zhuishushenqi.com'+item.cover">
+           <el-image style="width: 120px; height: 120px" :src="'http://statics.zhuishushenqi.com'+item.cover"></el-image> 
           <div class="navko">
             <h5>{{item.title}}</h5>
             <p>{{item.author}}</p>
@@ -429,7 +429,7 @@ export default {
       cursor: pointer;
       margin: 10px;
       .image {
-        width: 100px;
+        // width: 100px;
         height: 100%;
       }
       .navko {

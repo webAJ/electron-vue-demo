@@ -73,9 +73,7 @@ export default {
   background: #e9e6d0;
   color: #755927;
   font-family: PingFang SC,"Helvetica Neue",Helvetica,STHeiTi,sans-serif;
-  .red{
-    color: #169bd5;
-  }
+  
 }
 .box{
   width: 100%;

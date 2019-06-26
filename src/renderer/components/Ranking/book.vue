@@ -9,7 +9,7 @@
     <div>
       <ul class="bookNav" v-show="msg===0">
         <router-link tag="li" :to="{name:'detail', query:{id:item._id}}" v-for="(item,index) in book1" :key="index">
-            <img class="image" :src="'http://statics.zhuishushenqi.com'+item.cover" />
+          <el-image style="width: 120px; height: 120px" :src="'http://statics.zhuishushenqi.com'+item.cover"></el-image> 
             <div class="navko">
               <h5>{{item.title}}</h5>
               <p>{{item.author}}</p>
@@ -69,12 +69,12 @@ export default {
     }
   },
   mounted(){
-    
   },
   computed: {
     title(){
       return this.$store.state.Counter.TiId.title
     },
+		
     Id(){
       axios(`http://api.zhuishushenqi.com/ranking/${this.$store.state.Counter.TiId.id}`)
       .then(data =>{
@@ -157,7 +157,7 @@ export default {
       cursor: pointer;
       margin: 10px;
       .image{
-        width: 100px;
+        // width: 100px;
         height: 100%;
       }
       .navko{

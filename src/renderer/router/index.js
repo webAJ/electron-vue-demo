@@ -7,8 +7,16 @@ export default new Router({
   routes: [
     {
 		  path: '*',
-		  redirect: '/home'
+		  redirect: '/fpp'
     },
+		{
+		  path: '/fpp',
+		  name: 'fpp',
+		  components: {
+		    footer:() => import('@/components/footer'),
+		    default: () => import('@/components/fpp/index'),
+		  }
+		},
     //首页
     {
       path: '/home',
@@ -43,14 +51,6 @@ export default new Router({
         default: () => import('@/components/chapter/index'),
       }
     },
-    // 章节详情
-    {
-      path: '/Chapterdetails',
-      name: 'Chapterdetails',
-      components: {
-        default: () => import('@/components/Chapterdetails/index'),
-      }
-    },
     // 分类
     {
       path: '/class',
@@ -69,13 +69,6 @@ export default new Router({
         default: () => import('@/components/Ranking/index'),
       }
     },
-    {
-      path: '/fpp',
-      name: 'fpp',
-      components: {
-        footer:() => import('@/components/footer'),
-        default: () => import('@/components/fpp/index'),
-      }
-    },
+    
   ]
 })

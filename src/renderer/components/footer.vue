@@ -26,7 +26,7 @@ export default {
           path: '/Ranking',
         },
         {
-          name:'我的',
+          name:'书架',
           path: '/fpp',
         },
       ]

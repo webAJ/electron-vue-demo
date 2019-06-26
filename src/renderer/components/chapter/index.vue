@@ -3,7 +3,7 @@
     <v-haeder></v-haeder>
     <p class="title">章节目录</p>
     <ul>
-      <router-link tag="li" :to="{name:'Chapterdetails',query:{link:item.link,title:item.title,id:id}}" v-for="(item,index) in chapters" :key="index">
+      <router-link tag="li" :to="{name:'Article',query:{link:item.link,title:item.title,id:id,index}}" v-for="(item,index) in chapters" :key="index">
         {{item.title}}
       </router-link>
     </ul>
