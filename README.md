@@ -20,3 +20,5 @@ npm run build
 ---
 
 This project was generated with [electron-vue](https://github.com/SimulatedGREG/electron-vue) using [vue-cli](https://github.com/vuejs/vue-cli). Documentation about the original structure can be found [here](https://simulatedgreg.gitbooks.io/electron-vue/content/index.html).
+
+此api接口可以使用，但是小说文章不可阅读！！！(之前是可以的)
