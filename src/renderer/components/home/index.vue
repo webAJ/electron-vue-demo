@@ -16,6 +16,7 @@
 
 <script>
 import axios from 'axios'
+import { constants } from 'fs';
 export default {
   data () {
     return {
@@ -31,7 +32,12 @@ export default {
   mounted () {
     axios(`http://api.zhuishushenqi.com/book/by-categories?gender=male&type=hot&major=玄幻&minor=东方玄幻&start=0&limit=${this.num}`)
     .then(data =>{
-      this.list = data.data.books
+     this.list = data.data.books
+     var list = data.data.books
+      for(let i=0; i<list.length;i++ ){
+        console.log(list.index)
+      }
+       
     })
   },
   methods: {

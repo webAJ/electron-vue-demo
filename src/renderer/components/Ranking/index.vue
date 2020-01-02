@@ -61,7 +61,7 @@ export default {
 <style lang="scss" scoped>
 .Ranking{
   width: 100%;
-  height: auto;
+  height: 100%;
   box-sizing: border-box;
   padding: 20px;
   background: #fbfaf8;

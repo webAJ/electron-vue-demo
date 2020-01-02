@@ -8,7 +8,7 @@ const state = {
 }
 
 const getters = {
-  
+  // Id:function(){}
 }
 
 const mutations = {
@@ -31,11 +31,11 @@ const mutations = {
 }
 
 const actions = {
-  // 排行榜
+  // 排行榜 
   ClassList({commit}){
     axios(`http://api.zhuishushenqi.com/ranking/gender`)
     .then(data =>{
-      console.log(data.data)
+      console.log(state)
       commit('tabs',data.data.male)
       commit('female',data.data.female)
     })

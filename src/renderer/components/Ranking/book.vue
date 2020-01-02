@@ -149,7 +149,7 @@ export default {
     height: 100%;
     display: flex;
     flex-wrap:wrap; 
-    justify-content: space-around;
+    // justify-content: space-around;
     li{
       display: flex;
       width: 270px;

@@ -179,6 +179,10 @@ export default {
     };
   },
   mounted() {
+    axios(`https://novel.juhe.im/categories`)
+    .then(data=>{
+      console.log(data)
+    })
     // this.$store.dispatch('list');
     axios(`http://api.zhuishushenqi.com/cats/lv2/statistics`).then(data => {
       this.male = data.data.male;
